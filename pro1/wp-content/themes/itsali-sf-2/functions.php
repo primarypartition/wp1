@@ -1,5 +1,17 @@
 <?php
-/** //
+// Login styles
+function itsalisf_login_styles() {
+    wp_enqueue_style('itsalisf-login', get_Stylesheet_directory_uri(). '/login/login.css');
+}
+add_action('login_enqueue_scripts', 'itsalisf_login_styles');
+
+//
+function itsalisf_redirect_login() {
+    return home_url();
+}
+add_filter('login_headerurl', 'itsalisf_redirect_login');
+
+/** 
 function itsalisf_update_add_to_cart_text() {
     return "New Add to Cart";
 }
